@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">2Checkout Wrapper Demo</string>
+
+    <string name="action_ok">OK</string>
+
+    <string name="notif_error">Something went wrong: %1$s</string>
+    <string name="notif_success">Yay! Your token is: %1$s</string>
+    <string name="notif_card">Credit Card is not valid!</string>
+</resources>

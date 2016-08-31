@@ -1,0 +1,51 @@
+<html>
+<body>
+<script type="text/javascript" src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
+<script type="text/javascript">
+            var jsonData;
+            
+            function postMessage(message) {
+                console.log('postMessage')
+                console.log(message)
+                TwoCheckoutWrapper.on2CheckoutTokenError(message);
+            }
+            
+            var successCallback = function(data) {
+                 //data.response.token.token
+                 console.log('successCallback')
+                TwoCheckoutWrapper.on2CheckoutTokenSuccess(data.response.token.token);
+            }
+            
+            
+            // Called when token creation fails.
+            var errorCallback = function(data) {
+                if (data.errorCode === 200) {
+                    generateToken(jsonData);
+                } else {
+                    postMessage(data.errorMsg);
+                }
+            };
+            
+            function generateToken(env, cardData) {
+                console.log('function generateToken')
+                jsonData = JSON.parse(cardData)
+
+                console.log('after jsonData')
+                var isOnLine = window.navigator.onLine;
+                console.log(isOnLine)
+                if(isOnLine){
+                console.log('is onLine')
+                TCO.loadPubKey(env, function() {
+                               TCO.requestToken(successCallback, errorCallback, jsonData);
+                               });
+                }
+
+                else{
+                console.log('not onLine')
+                TwoCheckoutWrapper.on2CheckoutTokenError(message);
+                }
+
+            }
+</script>
+</body>
+</html>

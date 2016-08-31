@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/two_checkout_web_view"
+    android:layout_width="0dp"
+    android:layout_height="0dp">
+
+</WebView>

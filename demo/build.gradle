@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+
+    defaultConfig {
+        applicationId "com.viksaaskool.two.ckout.demo"
+        minSdkVersion 14
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "PUBLISHABLE_KEY", getLocalProperty('publishableKeyProd')
+            buildConfigField "String", "SELLER_ID", getLocalProperty('sellerIdProd')
+            buildConfigField "String", "ENVIRONMENT", getLocalProperty('environmentProd')
+        }
+
+        debug {
+            minifyEnabled false
+            versionNameSuffix "_debug"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "PUBLISHABLE_KEY", getLocalProperty('publishableKeyDev')
+            buildConfigField "String", "SELLER_ID", getLocalProperty('sellerIdDev')
+            buildConfigField "String", "ENVIRONMENT", getLocalProperty('environmentDev')
+        }
+
+
+    }
+}
+
+def getLocalProperty(propertyName) {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    return properties.getProperty(propertyName, null)
+}
+
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.android.support:design:24.0.0'
+
+    compile project(":lib")
+
+    /* Dependency Injection */
+    compile 'com.jakewharton:butterknife:8.1.0'
+    apt 'com.jakewharton:butterknife-compiler:8.1.0'
+
+    /* CreditCard EditText */
+    compile 'com.github.dbachelder:CreditCardEntry:1.4.7'
+}
