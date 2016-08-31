@@ -13,13 +13,17 @@ import com.viksaaskool.two.ckout.model.TwoCheckoutCard;
 /**
  * Created by varsovski on 14-Jul-16.
  */
-public class TwoCheckoutWrapper{
+public class TwoCheckoutWrapper {
 
     private WebView mWebView;
     private TwoCheckoutTokenCallback mTwoCheckoutTokenCallback;
 
+    public TwoCheckoutWrapper(Context c) {
+        this.initTwoCheckoutWrapper(c);
+    }
+
     @SuppressWarnings("all")
-    public void initTwoCheckoutWrapper(Context c) {
+    private void initTwoCheckoutWrapper(Context c) {
         View view = LayoutInflater.from(c).inflate(R.layout.two_checkout_layout, null);
         mWebView = (WebView) view.findViewById(R.id.two_checkout_web_view);
         mWebView.getSettings().setJavaScriptEnabled(true);
@@ -39,7 +43,7 @@ public class TwoCheckoutWrapper{
     }
 
     @JavascriptInterface
-    public void on2CheckoutTokenError(String error){
+    public void on2CheckoutTokenError(String error) {
         mTwoCheckoutTokenCallback.on2CheckoutTokenError(error);
     }
 
