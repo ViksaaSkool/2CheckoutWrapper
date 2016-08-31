@@ -23,19 +23,19 @@ Note: the credit card form is not part of 2CheckoutWrapper and is sparate librar
 
 # Usage
 
-Add this to your build.grade:
+Add it in your root build.gradle at the end of repositories:
 ```javascript
-	repositories {
-	//...
-        maven { 
-        url "https://jitpack.io" 
-        }
-    }
+       allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
 ```
 and then in dependencies:
 ```javascript
 	dependencies {
-	        compile 'com.github.ViksaaSkool:2CheckoutWrapper:3ca44c4714'
+	        compile 'com.github.ViksaaSkool:2CheckoutWrapper:b0d0f8c316'
 	}
 ```
 
