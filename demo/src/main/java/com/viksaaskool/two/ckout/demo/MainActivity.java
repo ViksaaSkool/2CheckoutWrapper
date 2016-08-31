@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements TwoCheckoutTokenCallback{
+public class MainActivity extends AppCompatActivity implements TwoCheckoutTokenCallback {
 
     @BindView(R.id.root_relative_layout)
     LinearLayout mRootLinearLayout;
@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity implements TwoCheckoutTokenC
         ButterKnife.bind(this);
 
         //set up the wrapper
-        mTwoCheckoutWrapper = new TwoCheckoutWrapper();
-        mTwoCheckoutWrapper.initTwoCheckoutWrapper(this);
+        mTwoCheckoutWrapper = new TwoCheckoutWrapper(this);
         mTwoCheckoutWrapper.setTwoCheckoutTokenCallback(this);
 
     }
