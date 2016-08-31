@@ -1,6 +1,5 @@
 # 2CheckoutWrapper
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-2CheckoutWrapper-green.svg?style=true)](https://android-arsenal.com/details/1/3938)
 
 <img src="https://github.com/ViksaaSkool/2CheckoutWrapper/blob/master/art/main_logo.png" width="128" height="128"/>
 
