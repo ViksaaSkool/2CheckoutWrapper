@@ -35,7 +35,7 @@ Add it in your root build.gradle at the end of repositories:
 and then in dependencies:
 ```javascript
 	dependencies {
-	        compile 'com.github.ViksaaSkool:2CheckoutWrapper:v1.0'
+	        compile 'com.github.ViksaaSkool:2CheckoutWrapper:v1.1'
 	}
 ```
 
@@ -54,8 +54,7 @@ private TwoCheckoutWrapper mTwoCheckoutWrapper;
         setContentView(R.layout.activity_main_demo);
 
         //set up the wrapper
-        mTwoCheckoutWrapper = new TwoCheckoutWrapper();
-        mTwoCheckoutWrapper.initTwoCheckoutWrapper(this);
+        mTwoCheckoutWrapper = new TwoCheckoutWrapper(this);
         mTwoCheckoutWrapper.setTwoCheckoutTokenCallback(this);
         
         //call for the token 
